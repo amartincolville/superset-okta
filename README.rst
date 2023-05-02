@@ -30,7 +30,7 @@ Set up a Superset application within Okta. To do so:
 4. Select Web Application.
 5. Click Next.
 6. In general settings:
-    a. specify the name of the application, choose a logo and select `Client acting on behalf of user` as Grant type;
+    a. specify the name of the application, choose a logo and gselect `Client acting on behalf of user` as Grant type;
     b. tick the `Authorization Code`, `Refresh Token`, `Implicit (hybrid)` boxes, and both `Allow ID Token with implicit grant type` and `Allow Access Token with implicit grant type`.
 7. Use persistent token as Refresh Token.
 8. Add your Sign-in redirect URIs. It should look something like `https://<your_superset_domain>.com/oauth-authorized/okta`
