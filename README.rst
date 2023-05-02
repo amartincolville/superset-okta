@@ -24,7 +24,7 @@ Prerequisites
 
 Set up a Superset application within Okta. To do so:
 
-1. In the Admin Console, go to ApplicationsApplications.
+1. In the Admin Console, go to Applications.
 2. Click Create App Integration.
 3. To create an OIDC app integration, select OIDC - OpenID Connect as the Sign-in method.
 4. Select Web Application.
