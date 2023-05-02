@@ -8,11 +8,7 @@ logger = logging.getLogger()
 
 
 class SupersetCustomSecurityManager(SupersetSecurityManager):
-    """Class for Superset customised security manager, based on SSO leveraging Okta
-
-    Attributes:
-        appbuilder: base Security Manager application for Superset
-    """
+    """Class for Superset customised security manager, based on SSO leveraging Okta"""
 
     def get_user_role(self, groups):
         """Assign role given the list of okta groups
@@ -22,18 +18,10 @@ class SupersetCustomSecurityManager(SupersetSecurityManager):
         """
         if "Superset_Admin" in groups:
             return [self.find_role("Admin")]
-        if "Compliance" in groups:
-            return [self.find_role("Compliance")]
-        # Roles granted by default to all non admin users
-        base_roles = [self.find_role("Alpha"),
-                      self.find_role("sql_lab"),
-                      self.find_role("report_creator")]
-        # Additional privileges for setting up filtered reports
-        if "Superset Report Sharing" in groups:
-            return base_roles + [self.find_role("RLS_creator"),
-                                 self.find_role("user_creator"),
-                                 self.find_role("role_creator")]
-        return base_roles
+        if "Superset_Explorer" in groups:
+            return [self.find_role("Alpha"),
+                    self.find_role("sql_lab")]
+        return [self.find_role("Public")]
 
     # pylint: disable=method-hidden, unused-argument
     def oauth_user_info(self, provider, response=None):
